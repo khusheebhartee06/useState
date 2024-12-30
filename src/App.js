@@ -1,25 +1,57 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import Counter from './Components/Counter';
+import Inputtype from './Components/Inputtype';
+import Show from './Components/Show';
+
 
 function App() {
+  let styleAdd = {
+    title: "CNC WEB WORLD",
+    style: {
+      textAlign: "center",
+      color: "red",
+      backgroundColor: "yellow"
+    }
+  }
+  let [data, update] = useState(styleAdd)
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Counter/>
+    <br />
+    <br />
+      <h1 style={{ textAlign: "center" }}>Change text style </h1>
+      <hr />
+     <h1 style={data.style}>{data.title}</h1>
+      <button onClick={() => {
+        update(
+          {
+            title: "Training center",
+           style:{
+            textAlign: "center",
+            color: "white",
+            backgroundColor: "blue"
+           }
+          }
+        )
+      }}>Click me</button>
+<br/>
+<br/>
+<br/>
+<br/>
+      <Inputtype/>
+<br/>
+<br/>
+<br/>
+<br/>
+<Show/>
+    </>
   );
 }
 
+
 export default App;
+
+
